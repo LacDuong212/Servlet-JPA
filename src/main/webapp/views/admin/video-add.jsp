@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
 <form action="${pageContext.request.contextPath}/admin/video/insert" method="post" enctype="multipart/form-data">
+    <label for="videoId" >Video ID:</label><br>
+    <input type="text" id="videoId" name="videoId"><br><br>
     <label for="title">Video Title:</label><br>
     <input type="text" id="title" name="title"><br><br>
     <label for="poster">Poster:</label><br>

@@ -3,6 +3,7 @@ package LD01.dao.impl;
 import LD01.configs.JPAConfig;
 import LD01.dao.ICategoryDao;
 import LD01.entity.Category;
+import LD01.entity.Video;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
@@ -110,6 +111,32 @@ public class CategoryDao implements ICategoryDao {
         EntityManager enma = JPAConfig.getEntityManager();
         TypedQuery<Category> query = enma.createNamedQuery("Category.findAll", Category.class);
         return query.getResultList();
+    }
+
+    @Override
+    public void deleteCategoryWithVideos(int categoryId) {
+        EntityManager enma = JPAConfig.getEntityManager();
+        EntityTransaction trans = enma.getTransaction();
+        try {
+            trans.begin();
+            Category category = enma.find(Category.class, categoryId);
+            if (category != null) {
+                List<Video> videos = category.getVideos();
+                if (videos != null && !videos.isEmpty()) {
+                    for (Video video : videos) {
+                        enma.remove(video);
+                    }
+                }
+                enma.remove(category);
+            }
+            trans.commit();
+        }catch (Exception e) {
+            e.printStackTrace();
+            trans.rollback();
+            throw e;
+        } finally {
+            enma.close();
+        }
     }
 
 }

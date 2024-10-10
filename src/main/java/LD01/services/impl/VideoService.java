@@ -22,12 +22,12 @@ public class VideoService implements IVideoService {
     }
 
     @Override
-    public Video findById(int videoid) {
+    public Video findById(String videoid) {
         return videodao.findById(videoid);
     }
 
     @Override
-    public void delete(int videoid) throws Exception {
+    public void delete(String videoid) throws Exception {
         videodao.delete(videoid);
     }
 

@@ -1,6 +1,7 @@
 package LD01.configs;
 
 import LD01.entity.Category;
+import LD01.entity.Video;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 

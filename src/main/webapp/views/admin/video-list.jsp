@@ -6,6 +6,7 @@
 <table border="1" width="100%">
     <tr>
         <th>STT</th>
+        <th>VideoID</th>
         <th>Title</th>
         <th>Poster</th>
         <th>Description</th>
@@ -18,6 +19,7 @@
     <c:forEach items="${listvideo}" var="video" varStatus="STT">
         <tr>
             <td>${STT.index+1}</td>
+            <td>${video.videoId}</td>
             <td>${video.title}</td>
             <td>
                 <c:if test="${video.poster.substring(0, 5)!='https'}">

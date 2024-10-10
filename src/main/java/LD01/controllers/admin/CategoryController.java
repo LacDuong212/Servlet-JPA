@@ -53,7 +53,7 @@ public class CategoryController extends HttpServlet {
         } else if (url.contains("delete")) {
             String id = req.getParameter("id");
             try {
-                cateService.delete(Integer.parseInt(id));
+                cateService.deleteCategoryWithVideos(Integer.parseInt(id));
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

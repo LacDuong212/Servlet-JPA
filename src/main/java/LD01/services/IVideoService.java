@@ -10,9 +10,9 @@ public interface IVideoService {
 
     List<Video> findAll();
 
-    Video findById(int videoid);
+    Video findById(String videoid);
 
-    void delete(int videoid) throws Exception;
+    void delete(String videoid) throws Exception;
 
     void update(Video video);
 

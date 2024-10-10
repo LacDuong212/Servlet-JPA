@@ -22,4 +22,6 @@ public interface ICategoryService {
 
     void insert(Category category);
 
+    void deleteCategoryWithVideos(int categoryId);
+
 }

@@ -51,7 +51,7 @@ public class VideoController extends HttpServlet {
         } else if (url.contains("edit")) {
             List<Category> categories = categoryService.findAll();  // Lấy danh sách category
             req.setAttribute("categories", categories);
-            int id = Integer.parseInt(req.getParameter("id"));
+            String id = req.getParameter("id");
 
             Video video = videoService.findById(id);
 
@@ -61,7 +61,7 @@ public class VideoController extends HttpServlet {
         } else if (url.contains("delete")) {
             String id = req.getParameter("id");
             try {
-                videoService.delete(Integer.parseInt(id));
+                videoService.delete(id);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -77,11 +77,13 @@ public class VideoController extends HttpServlet {
 
         if (url.contains("insert")) {
             Video video = new Video();
+            String videoId = req.getParameter("videoId");
             String title = req.getParameter("title");
             String description = req.getParameter("description");
             int categoryId = Integer.parseInt(req.getParameter("category"));
             int status = Integer.parseInt(req.getParameter("active"));
 
+            video.setVideoId(videoId);
             video.setTitle(title);
             video.setDescription(description);
             video.setCategory(categoryService.findById(categoryId));
@@ -114,7 +116,7 @@ public class VideoController extends HttpServlet {
             videoService.insert(video);
             resp.sendRedirect(req.getContextPath() + "/admin/videos");
         } else if (url.contains("update")) {
-            int videoId = Integer.parseInt(req.getParameter("videoId"));
+            String videoId = req.getParameter("videoId");
             String title = req.getParameter("title");
             String description = req.getParameter("description");
             int categoryId = Integer.parseInt(req.getParameter("category"));

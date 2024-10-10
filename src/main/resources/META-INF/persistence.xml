@@ -5,6 +5,9 @@
              https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="jpa-hibernate-sql">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>LD01.entity.Video</class>
+        <class>LD01.entity.Category</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=jpast2;TrustServerCertificate=true" />
             <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />

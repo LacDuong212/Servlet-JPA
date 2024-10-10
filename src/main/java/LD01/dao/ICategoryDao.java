@@ -21,4 +21,6 @@ public interface ICategoryDao {
     List<Category> findByCategoryname(String catname);
 
     List<Category> findAll();
+
+    void deleteCategoryWithVideos(int categoryId);
 }

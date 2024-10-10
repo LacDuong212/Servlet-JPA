@@ -21,7 +21,7 @@ public class Video implements Serializable {
 
     @Id
     @Column(name = "VideoId")
-    private int videoId;
+    private String videoId;
 
     @Column(name = "Active")
     private int active;
@@ -32,7 +32,7 @@ public class Video implements Serializable {
     @Column(name = "Poster", columnDefinition = "NVARCHAR(500) null")
     private String poster;
 
-    @Column(name = "Title", columnDefinition = "NVARCHAR(5000) not null")
+    @Column(name = "Title", columnDefinition = "NVARCHAR(500) not null")
     @NotEmpty(message = "Không được để trống")
     private String title;
 

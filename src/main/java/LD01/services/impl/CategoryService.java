@@ -56,4 +56,10 @@ public class CategoryService implements ICategoryService {
         cateDao.insert(category);
     }
 
+    @Override
+    public void deleteCategoryWithVideos(int categoryId) {
+        cateDao.deleteCategoryWithVideos(categoryId);
+    }
+
+
 }
