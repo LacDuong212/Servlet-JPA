@@ -32,7 +32,7 @@ public class Video implements Serializable {
     @Column(name = "Poster", columnDefinition = "NVARCHAR(500) null")
     private String poster;
 
-    @Column(name = "Title", columnDefinition = "NVARCHAR(5000) null")
+    @Column(name = "Title", columnDefinition = "NVARCHAR(5000) not null")
     @NotEmpty(message = "Không được để trống")
     private String title;
 
